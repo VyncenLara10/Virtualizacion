@@ -17,3 +17,7 @@
 ### 4. TEST 3
 
 ![Configuration](docs/caso3.png)
+
+### 5. Configuration VM
+
+![Configuration](docs/configVM.png)
