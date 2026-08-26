@@ -31,6 +31,7 @@ This image shows the complete Packet Tracer topology and the connection between 
 ## 1. Connectivity
 
 ![Connectivity](docs/02-conectividad.png)
+![Connectivity](docs/02-conectividad2.png)
 
 This image verifies the IP addressing and operational status of the router interfaces. The interfaces required for communication between the LANs and the ISP are configured and active.
 
@@ -79,6 +80,8 @@ This image shows the IPSec Security Association and the packet counters generate
 ## 7. HTTPS Server
 
 ![HTTPS Server](docs/08-https-server.png)
+![HTTPS Server](docs/08-https-server2.png)
+
 
 This image shows the web server configuration with HTTPS enabled on the server located in the `192.168.20.0/24` network.
 
