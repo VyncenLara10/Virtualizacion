@@ -1,0 +1,62 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: home-route
+  namespace: parcial-vyll
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`vyncen-home.local`)
+      kind: Rule
+      services:
+        - name: home
+          port: 80
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: about-route
+  namespace: parcial-vyll
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`vyncen-about.local`)
+      kind: Rule
+      services:
+        - name: about
+          port: 80
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: projects-route
+  namespace: parcial-vyll
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`vyncen-project.local`)
+      kind: Rule
+      services:
+        - name: projects
+          port: 80
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: contact-route
+  namespace: parcial-vyll
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`vyncen-contact.local`)
+      kind: Rule
+      services:
+        - name: contact
+          port: 80

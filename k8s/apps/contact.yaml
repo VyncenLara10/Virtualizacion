@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: contact-html
+  namespace: parcial-vyll
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Contact Vyncen</title>
+      <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #b2d0cc;
+          color: #19183b;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+        .card {
+          background: white;
+          padding: 45px;
+          border-radius: 20px;
+          text-align: center;
+          width: 500px;
+          box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        }
+        .email {
+          background: #f4e9c2;
+          padding: 15px;
+          border-radius: 10px;
+          margin-top: 20px;
+        }
+        .tag {
+          display: inline-block;
+          background: #19183b;
+          color: white;
+          padding: 10px 18px;
+          border-radius: 20px;
+          margin-top: 15px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Contacto de Vyncen</h1>
+        <p>Gracias por visitar mi proyecto de Kubernetes.</p>
+        <div class="email">Vyncen Lara · Ingeniería en Sistemas</div>
+        <div class="tag">Aplicacion 4</div>
+      </div>
+    </body>
+    </html>
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact
+  namespace: parcial-vyll
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contact
+  template:
+    metadata:
+      labels:
+        app: contact
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: html
+          configMap:
+            name: contact-html
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact
+  namespace: parcial-vyll
+spec:
+  selector:
+    app: contact
+  ports:
+    - port: 80
+      targetPort: 80
