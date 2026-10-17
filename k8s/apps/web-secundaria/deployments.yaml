@@ -1,0 +1,82 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projects
+  namespace: parcial-vyll
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: projects
+  template:
+    metadata:
+      labels:
+        app: projects
+    spec:
+      containers:
+        - name: caddy
+          image: caddy:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/caddy
+      volumes:
+        - name: html
+          configMap:
+            name: projects-html
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: projects
+  namespace: parcial-vyll
+spec:
+  selector:
+    app: projects
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact
+  namespace: parcial-vyll
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contact
+  template:
+    metadata:
+      labels:
+        app: contact
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: html
+          configMap:
+            name: contact-html
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact
+  namespace: parcial-vyll
+spec:
+  selector:
+    app: contact
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

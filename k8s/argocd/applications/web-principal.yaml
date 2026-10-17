@@ -1,0 +1,19 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-principal
+  namespace: argocd-vyll
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/VyncenLara10/Virtualizacion.git
+    targetRevision: assessment-06
+    path: k8s/apps/web-principal
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: parcial-vyll
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false

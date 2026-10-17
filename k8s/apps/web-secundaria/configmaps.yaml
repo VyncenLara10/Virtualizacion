@@ -1,0 +1,113 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: projects-html
+  namespace: parcial-vyll
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Vyncen Projects</title>
+      <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #e7f2ef;
+          color: #19183b;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+        .card {
+          background: white;
+          padding: 45px;
+          border-radius: 20px;
+          text-align: center;
+          width: 500px;
+          box-shadow: 0 10px 30px rgba(0,0,0,.15);
+        }
+        .project {
+          background: #b2d0cc;
+          padding: 12px;
+          margin: 10px 0;
+          border-radius: 10px;
+        }
+        .tag {
+          display: inline-block;
+          background: #19183b;
+          color: white;
+          padding: 10px 18px;
+          border-radius: 20px;
+          margin-top: 15px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Vyncen Proyectos</h1>
+        <div class="project">Hovergt Gt</div>
+        <div class="project">Hellbound</div>
+        <div class="project">Proyecto Sistemas</div>
+        <div class="tag">Aplicacion 3</div>
+      </div>
+    </body>
+    </html>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: contact-html
+  namespace: parcial-vyll
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Contact Vyncen</title>
+      <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #b2d0cc;
+          color: #19183b;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+        .card {
+          background: white;
+          padding: 45px;
+          border-radius: 20px;
+          text-align: center;
+          width: 500px;
+          box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        }
+        .email {
+          background: #f4e9c2;
+          padding: 15px;
+          border-radius: 10px;
+          margin-top: 20px;
+        }
+        .tag {
+          display: inline-block;
+          background: #19183b;
+          color: white;
+          padding: 10px 18px;
+          border-radius: 20px;
+          margin-top: 15px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Contacto de Vyncen</h1>
+        <p>Gracias por visitar mi proyecto de Kubernetes.</p>
+        <div class="email">Vyncen Lara · Ingeniería en Sistemas</div>
+        <div class="tag">Aplicacion 4</div>
+      </div>
+    </body>
+    </html>
