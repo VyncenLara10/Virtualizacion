@@ -1,0 +1,15 @@
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-vyll
+  namespace: argocd-vyll
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`argocd-vyll.local`)
+      kind: Rule
+      services:
+        - name: argocd-server
+          port: 80
