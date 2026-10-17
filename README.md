@@ -79,6 +79,8 @@ The following screenshots show the applications before the Git change.
 
 To test automated synchronization, the desired replica count for the `home` Deployment was changed from one to two in `k8s/apps/web-principal/deployments.yaml`.
 
+![change](docs/10-CambioEnGithub.png)
+
 The change was committed and pushed to the `assessment-06` branch in GitHub. Argo CD synchronized the updated configuration with the Kubernetes cluster.
 
 ### Results After Synchronization
